@@ -1,0 +1,6 @@
+name: Duwuels
+version: '${project.version}'
+main: me.aroze.duwuels.Duwuels
+api-version: 1.18
+authors: [ Aroze ]
+description: A dogshit duels core
