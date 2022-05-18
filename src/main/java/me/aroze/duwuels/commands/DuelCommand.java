@@ -11,7 +11,7 @@ public class DuelCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length > 1) {
-            sender.sendMessage(ChatUtils.color("\n &c⚠ &cDuels &7» &cSyntax:\n  &f/duel &7[Public Queues] \n  &f/duel <player> &7[Private Duel]\n "));
+            sender.sendMessage(ChatUtils.color("\n &6⚠ &eDuels &6» &eSyntax:\n  &f/duel &7[Public Queues] \n  &f/duel <player> &7[Private Duel]\n "));
             return true;
         }
 
