@@ -17,9 +17,10 @@ public class DuelCommand implements CommandExecutor {
         }
 
         if (args.length == 1) {
-            if (!(Bukkit.getPlayer(args[0]).isOnline())) {
+            if (!(Bukkit.getOfflinePlayer(args[0]).isOnline())) {
                 sender.sendMessage(ChatUtils.color("\n &6⚠ &eDuels &7» &eSyntax:\n  &f/duel &7[Public Duel Queues] \n  &f/duel <player> &7[Private Duel]\n "));
                 sender.sendMessage(ChatUtils.color("\n &7You seem to have specified a player: &e " + args[0] + "\n  ,&7but they are not online ;c"));
+                return true;
             }
         }
 
