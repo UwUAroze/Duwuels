@@ -12,6 +12,7 @@ public class DuelCommand implements CommandExecutor {
 
         if (args.length > 1) {
             sender.sendMessage(ChatUtils.color("&c⚠ Syntax:\n &7/duel &8[Public queues] \n &7/duel <player> &8[private duel]"));
+            return true;
         }
 
         return true;
