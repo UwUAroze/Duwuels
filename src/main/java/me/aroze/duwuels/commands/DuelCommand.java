@@ -2,17 +2,22 @@ package me.aroze.duwuels.commands;
 
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
 
 public class DuelCommand implements CommandExecutor {
 
+    static Inventory inv;
     static ArrayList<UUID> qSumo = new ArrayList<>();
 
     @Override
@@ -36,6 +41,11 @@ public class DuelCommand implements CommandExecutor {
             }
             // private duel code
         }
+
+        inv = Bukkit.createInventory((Player) sender, 1, ChatUtils.color("&6Duels &7&o» &ePublic Queues"));
+        ItemStack sumo = new ItemStack(Material.SLIME_BALL);
+        sumo.getItemMeta().setDisplayName(ChatUtils.color("&cSumo"));
+        sumo.getItemMeta().setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &c4/4" ), ChatUtils.color("&7Queued: 6"), "\n\n&e&oClick here to join the queue"));
 
         return true;
     }
