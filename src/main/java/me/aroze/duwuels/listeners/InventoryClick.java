@@ -13,6 +13,7 @@ public class InventoryClick implements Listener {
 
         if (e.getView().getTitle().equals(ChatUtils.color("&6Duels &7&o» &ePublic Queues"))) {
             DuelCommand.queueGUI((Player) e.getWhoClicked());
+            e.setCancelled(true);
             Bukkit.broadcastMessage("a");
         }
 
