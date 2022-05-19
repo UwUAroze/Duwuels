@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,8 +23,10 @@ public class DuelCommand implements CommandExecutor {
     public static void queueGUI(Player p) {
         Inventory inv = Bukkit.createInventory(p, 9, ChatUtils.color("&6Duels &7&o» &ePublic Queues"));
         ItemStack sumo = new ItemStack(Material.SLIME_BALL);
-        sumo.getItemMeta().setDisplayName(ChatUtils.color("&cSumo"));
-        sumo.getItemMeta().setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &c4/4" ), ChatUtils.color("&7Queued: 6"), "\n\n&e&oClick here to join the queue"));
+        ItemMeta sumoMeta = sumo.getItemMeta();
+        sumoMeta.setDisplayName(ChatUtils.color("&cSumo"));
+        sumoMeta.setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &c4/4" ), ChatUtils.color("&7Queued: 6"), "\n\n&e&oClick here to join the queue"));
+        sumo.setItemMeta(sumoMeta);
         inv.setItem(4, sumo);
 
         p.openInventory(inv);
