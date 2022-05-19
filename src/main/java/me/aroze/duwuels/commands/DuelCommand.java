@@ -13,14 +13,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
 
 
 public class DuelCommand implements CommandExecutor {
-
-    static ArrayList<UUID> qSumo = new ArrayList<>();
 
     public static void queueGUI(Player p) {
         Inventory inv = Bukkit.createInventory(p, 9, ChatUtils.color("&cDuels &7&o» &cPublic Queues"));
@@ -31,8 +27,8 @@ public class DuelCommand implements CommandExecutor {
         sumo.setItemMeta(sumoMeta);
         inv.setItem(4, sumo);
 
-        p.setMetadata("duelGui", new FixedMetadataValue(Duwuels.getInstance(), true));
         p.openInventory(inv);
+        p.setMetadata("duelGui", new FixedMetadataValue(Duwuels.getInstance(), true));
     }
 
     @Override
