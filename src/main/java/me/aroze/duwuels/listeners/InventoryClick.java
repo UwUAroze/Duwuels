@@ -27,6 +27,7 @@ public class InventoryClick implements Listener {
                 e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &aadded &7to the &eSumo &7queue!"));
                 e.getWhoClicked().closeInventory();
                 // queue/game logic
+                SumoDuel.start();
             }
         }
 
