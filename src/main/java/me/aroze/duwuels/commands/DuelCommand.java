@@ -1,5 +1,6 @@
 package me.aroze.duwuels.commands;
 
+import me.aroze.duwuels.Duwuels;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -10,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.metadata.FixedMetadataValue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,7 @@ public class DuelCommand implements CommandExecutor {
         inv.setItem(4, sumo);
 
         p.openInventory(inv);
+        p.setMetadata("duelGui", new FixedMetadataValue(Duwuels.getInstance(), "duelGui"));
     }
 
     @Override
