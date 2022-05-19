@@ -16,4 +16,9 @@ public final class Duwuels extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
+    public static Duwuels getInstance() {
+        return getPlugin(Duwuels.class);
+    }
+
 }
