@@ -20,7 +20,7 @@ public class InventoryClick implements Listener {
             if (e.getSlot() == 4) {
                 if (DuelQueue.qSumo.contains(e.getWhoClicked().getUniqueId())) {
                     DuelQueue.qSumo.remove(e.getWhoClicked().getUniqueId());
-                    e.getWhoClicked().sendMessage(ChatUtils.color("&eYou have been &cremoved &7from the &eSumo &7queue!"));
+                    e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &cremoved &7from the &eSumo &7queue!"));
                     return;
                 }
                 DuelQueue.qSumo.add(e.getWhoClicked().getUniqueId());
