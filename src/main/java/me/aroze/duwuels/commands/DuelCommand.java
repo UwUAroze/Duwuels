@@ -1,6 +1,7 @@
 package me.aroze.duwuels.commands;
 
 import me.aroze.duwuels.Duwuels;
+import me.aroze.duwuels.handlers.DuelQueue;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -23,7 +24,7 @@ public class DuelCommand implements CommandExecutor {
         ItemStack sumo = new ItemStack(Material.SLIME_BALL);
         ItemMeta sumoMeta = sumo.getItemMeta();
         sumoMeta.setDisplayName(ChatUtils.color("&cSumo"));
-        sumoMeta.setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &c4/4" ), ChatUtils.color("&7Queued: &c6"), "\n\n&e&oClick here to join the queue"));
+        sumoMeta.setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &cum"), ChatUtils.color("&7Queued: &c" + DuelQueue.qSumo.size()), "\n\n&e&oClick here to join the queue"));
         sumo.setItemMeta(sumoMeta);
         inv.setItem(4, sumo);
 
