@@ -31,8 +31,8 @@ public class DuelCommand implements CommandExecutor {
         sumo.setItemMeta(sumoMeta);
         inv.setItem(4, sumo);
 
-        p.openInventory(inv);
         p.setMetadata("duelGui", new FixedMetadataValue(Duwuels.getInstance(), true));
+        p.openInventory(inv);
     }
 
     @Override
