@@ -20,12 +20,13 @@ public class InventoryClick implements Listener {
                 if (SumoDuel.queue.contains(e.getWhoClicked().getUniqueId())) {
                     SumoDuel.queue.remove(e.getWhoClicked().getUniqueId());
                     e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &cremoved &7from the &eSumo &7queue!"));
+                    e.getWhoClicked().closeInventory();
                     return;
                 }
                 SumoDuel.queue.add(e.getWhoClicked().getUniqueId());
                 e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &aadded &7to the &eSumo &7queue!"));
+                e.getWhoClicked().closeInventory();
                 // queue/game logic
-                return;
             }
         }
 
