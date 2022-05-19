@@ -20,7 +20,7 @@ public class DuelCommand implements CommandExecutor {
     static ArrayList<UUID> qSumo = new ArrayList<>();
 
     public static void queueGUI(Player p) {
-        Inventory inv = Bukkit.createInventory(p, 1, ChatUtils.color("&6Duels &7&o» &ePublic Queues"));
+        Inventory inv = Bukkit.createInventory(p, 9, ChatUtils.color("&6Duels &7&o» &ePublic Queues"));
         ItemStack sumo = new ItemStack(Material.SLIME_BALL);
         sumo.getItemMeta().setDisplayName(ChatUtils.color("&cSumo"));
         sumo.getItemMeta().setLore(Arrays.asList("\n", ChatUtils.color("&7Playing: &c4/4" ), ChatUtils.color("&7Queued: 6"), "\n\n&e&oClick here to join the queue"));
