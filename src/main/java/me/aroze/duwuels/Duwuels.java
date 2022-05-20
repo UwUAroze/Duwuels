@@ -10,7 +10,6 @@ public final class Duwuels extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
 
         addCommand("duel", new DuelCommand());
 
@@ -20,12 +19,11 @@ public final class Duwuels extends JavaPlugin {
         addListener(new Join());
         addListener(new PlaceBreak());
 
-
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        // Soon:tm:
     }
 
     public static Duwuels getInstance() {
