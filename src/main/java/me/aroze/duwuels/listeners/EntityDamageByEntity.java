@@ -14,7 +14,7 @@ public class EntityDamageByEntity implements Listener {
     public void onDamage(EntityDamageByEntityEvent e) {
         if (!(e.getEntity() instanceof Player)) return;
         LivingEntity player = (LivingEntity) e.getEntity();
-        player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(100);
+        //soon
     }
 
 }
