@@ -32,7 +32,6 @@ public class DuelCommand implements CommandExecutor {
         p.setMetadata("duelGui", new FixedMetadataValue(Duwuels.getInstance(), true));
     }
 
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
