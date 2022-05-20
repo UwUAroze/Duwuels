@@ -3,6 +3,7 @@ package me.aroze.duwuels.listeners;
 import me.aroze.duwuels.Duwuels;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.event.EventHandler;
@@ -24,8 +25,13 @@ public class Join implements Listener {
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
-            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 ) {
-                e.getPlayer().setHealth(0);
+            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && e.getPlayer().getGameMode().equals(GameMode.SURVIVAL)) {
+                e.getPlayer().setGameMode(GameMode.SPECTATOR);
+                e.getPlayer().sendTitle("&eYou died!", "&6lol what an idiot",10,60,10);
+                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+                    e.getPlayer().setGameMode(GameMode.ADVENTURE);
+                    e.getPlayer().teleport(spawnLoc);
+                }, 60);
             }
         } , 0, 1);
 
