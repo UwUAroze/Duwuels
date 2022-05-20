@@ -24,7 +24,7 @@ public class Join implements Listener {
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
-            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y <= 64 ) {
+            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 ) {
                 e.getPlayer().setHealth(0);
             }
         } , 0, 1);
