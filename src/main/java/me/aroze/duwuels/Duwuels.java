@@ -11,13 +11,15 @@ public final class Duwuels extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getCommand("duel").setExecutor(new DuelCommand());
 
-        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
-        getServer().getPluginManager().registerEvents(new InventoryClose(), this);
-        getServer().getPluginManager().registerEvents(new EntityDamageByEntity(), this);
-        getServer().getPluginManager().registerEvents(new Join(), this);
-        getServer().getPluginManager().registerEvents(new PlaceBreak(), this);
+        addCommand("duel", new DuelCommand());
+
+        addListener(new InventoryClick());
+        addListener(new InventoryClose());
+        addListener(new EntityDamageByEntity());
+        addListener(new Join());
+        addListener(new PlaceBreak());
+
 
     }
 
