@@ -17,6 +17,7 @@ public class Join implements Listener {
         Location spawnLoc = Bukkit.getWorld("originallobby").getSpawnLocation();
         spawnLoc.setYaw(135);
         spawnLoc.setPitch(0);
+        e.getPlayer().teleport(spawnLoc);
 
     }
 
