@@ -27,7 +27,7 @@ public class Join implements Listener {
             double y = e.getPlayer().getLocation().getY();
             if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && e.getPlayer().getGameMode().equals(GameMode.SURVIVAL)) {
                 e.getPlayer().setGameMode(GameMode.SPECTATOR);
-                e.getPlayer().sendTitle("&eYou died!", "&6lol what an idiot",10,60,10);
+                e.getPlayer().sendTitle(ChatUtils.color("&eYou died!"), ChatUtils.color("&6lol what an idiot"),10,60,10);
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     e.getPlayer().setGameMode(GameMode.ADVENTURE);
                     e.getPlayer().teleport(spawnLoc);
