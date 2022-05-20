@@ -1,5 +1,6 @@
 package me.aroze.duwuels.listeners;
 
+import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -11,7 +12,7 @@ public class PlaceBreak implements Listener {
     public void onBreak(BlockBreakEvent e) {
         if (!(e.getPlayer().hasPermission("duwuels.build"))) {
             e.setCancelled(true);
-            e.getPlayer().sendMessage("§c⚠ &7Smh! You can't break blocks!");
+            e.getPlayer().sendMessage(ChatUtils.color("&c⚠ &7Smh! You can't break blocks!"));
         }
     }
 
@@ -19,7 +20,7 @@ public class PlaceBreak implements Listener {
     public void onPlace(BlockPlaceEvent e) {
         if (!(e.getPlayer().hasPermission("duwuels.build"))) {
             e.setCancelled(true);
-            e.getPlayer().sendMessage("§c⚠ &7Smh! You can't place blocks!");
+            e.getPlayer().sendMessage(ChatUtils.color("§c⚠ &7Smh! You can't place blocks!"));
         }
     }
 
