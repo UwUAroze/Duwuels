@@ -4,6 +4,7 @@ import me.aroze.duwuels.commands.DuelCommand;
 import me.aroze.duwuels.listeners.EntityDamageByEntity;
 import me.aroze.duwuels.listeners.InventoryClick;
 import me.aroze.duwuels.listeners.InventoryClose;
+import me.aroze.duwuels.listeners.Join;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Duwuels extends JavaPlugin {
@@ -16,6 +17,7 @@ public final class Duwuels extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InventoryClick(), this);
         getServer().getPluginManager().registerEvents(new InventoryClose(), this);
         getServer().getPluginManager().registerEvents(new EntityDamageByEntity(), this);
+        getServer().getPluginManager().registerEvents(new Join(), this);
 
     }
 
