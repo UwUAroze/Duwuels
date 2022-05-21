@@ -17,8 +17,9 @@ public class TestGenerate implements CommandExecutor {
         Player player = (Player) sender;
         Location middle = player.getLocation();
 
+        middle.clone().add(0,2,0).getBlock().setType(Material.BEDROCK);
 
-        Location start = middle.clone().add(4, 0, 4);
+        Location start = middle.clone().add(-4, 0, -4);
 
 
         for (int x = 0; x <= 8; x++) {
@@ -28,7 +29,7 @@ public class TestGenerate implements CommandExecutor {
             }
         }
 
-        Location start2 = middle.clone().add(5, 0, 3);
+        Location start2 = middle.clone().add(-5, 0, -3);
         for (int z = 0; z <= 10; z=z+10) {
             for (int x = 0; x < 7; x++) {
                 player.getWorld().getBlockAt(start2.clone().add(x, 0, z)).setType(Material.BARRIER);
@@ -36,7 +37,7 @@ public class TestGenerate implements CommandExecutor {
             }
         }
 
-        Location start3 = middle.clone().add(3, 0, 5);
+        Location start3 = middle.clone().add(-3, 0, -5);
         for (int x = 0; x <= 10; x=x+10) {
             for (int z = 0; z < 7; z++) {
                 player.getWorld().getBlockAt(start3.clone().add(x, 0, z)).setType(Material.BARRIER);
