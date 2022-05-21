@@ -26,7 +26,13 @@ public class TestGenerate implements CommandExecutor {
         Location start2 = middle.clone().add(5, 0, 3);
         for (int z = 0; z <= 10; z=z+10) {
             for (int x = 0; x < 7; x++) {
-                Bukkit.broadcastMessage("" + x + ", " + z);
+                player.getWorld().getBlockAt(start2.clone().add(x, 0, z)).setType(Material.ORANGE_CONCRETE);
+            }
+        }
+
+        Location start3 = middle.clone().add(4, 0, 5);
+        for (int x = 0; x <= 10; x=x+10) {
+            for (int z = 0; z < 7; z++) {
                 player.getWorld().getBlockAt(start2.clone().add(x, 0, z)).setType(Material.ORANGE_CONCRETE);
             }
         }
