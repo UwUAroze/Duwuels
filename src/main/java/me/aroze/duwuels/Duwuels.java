@@ -16,7 +16,7 @@ public final class Duwuels extends JavaPlugin {
         addListener(new InventoryClick());
         addListener(new InventoryClose());
         addListener(new EntityDamageByEntity());
-        addListener(new Join());
+        addListener(new PlayerJoin());
         addListener(new PlaceBreak());
 
     }
