@@ -27,11 +27,11 @@ public class PlayerJoin implements Listener {
             double y = e.getPlayer().getLocation().getY();
             if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && e.getPlayer().getGameMode().equals(GameMode.SURVIVAL)) {
                 e.getPlayer().setGameMode(GameMode.SPECTATOR);
-                e.getPlayer().sendTitle(ChatUtils.color("&eYou died!"), ChatUtils.color("&6lol what an idiot"),10,30,10);
+                e.getPlayer().sendTitle(ChatUtils.color("&cYou died!"), ChatUtils.color("&7Better luck next time :p"),5,15,5);
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     e.getPlayer().setGameMode(GameMode.ADVENTURE);
                     e.getPlayer().teleport(spawnLoc);
-                }, 60);
+                }, 25);
             }
         } , 0, 1);
 
