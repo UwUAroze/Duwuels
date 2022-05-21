@@ -20,8 +20,16 @@ public class SumoDuel {
         queue.remove(Player1.getUniqueId());
         queue.remove(Player2.getUniqueId());
 
-        Player1.teleport(new Location(Bukkit.getWorld("Duel-Sumo-1"), 5,65,0));
-        Player2.teleport(new Location(Bukkit.getWorld("Duel-Sumo-1"), -5,65,0));
+        Location loc1 = new Location(Bukkit.getWorld("Duel-Sumo-1"), 5,65,0);
+        loc1.setYaw(90);
+        loc1.setPitch(0);
+
+        Location loc2 = new Location(Bukkit.getWorld("Duel-Sumo-1"), -5,65,0);
+        loc2.setYaw(-90);
+        loc2.setPitch(0);
+
+        Player1.teleport(loc1);
+        Player2.teleport(loc2);
 
         return true;
     }
