@@ -31,8 +31,6 @@ public class PlayerJoin implements Listener {
             double y = e.getPlayer().getLocation().getY();
             if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && SumoDuel.playing.get(1).contains(e.getPlayer().getUniqueId())) {
 
-                Bukkit.broadcastMessage("a");
-
                 Player loser = e.getPlayer();
                 SumoDuel.playing.get(1).remove(loser.getUniqueId());
 
@@ -41,8 +39,6 @@ public class PlayerJoin implements Listener {
 
                 loser.setGameMode(GameMode.SPECTATOR);
                 winner.setGameMode(GameMode.SPECTATOR);
-
-                Bukkit.broadcastMessage("b");
 
                 loser.sendTitle(ChatUtils.color("&cYou died!"), ChatUtils.color("&7Better luck next time :p"),5,15,5);
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
