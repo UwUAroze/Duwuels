@@ -25,7 +25,7 @@ public class TestGenerate implements CommandExecutor {
 
         Location start2 = middle.clone().add(5, 0, 3);
             for (int a = 0; a < 5; a++) {
-                player.getWorld().getBlockAt(start2.clone().add(0, 0, a)).setType(Material.LIME_CONCRETE);
+                player.getWorld().getBlockAt(start2.clone().add(a, 0, 0)).setType(Material.LIME_CONCRETE);
             }
 
 
