@@ -7,3 +7,4 @@ description: A dogshit duels core
 commands:
   duel:
     aliases: [ d, duels, duwuel, duwuels, 1v1 ]
+  gen: {}

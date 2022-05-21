@@ -1,6 +1,7 @@
 package me.aroze.duwuels;
 
 import me.aroze.duwuels.commands.DuelCommand;
+import me.aroze.duwuels.commands.TestGenerate;
 import me.aroze.duwuels.listeners.*;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
@@ -12,6 +13,7 @@ public final class Duwuels extends JavaPlugin {
     public void onEnable() {
 
         addCommand("duel", new DuelCommand());
+        addCommand("gen", new TestGenerate());
 
         addListener(new InventoryClick());
         addListener(new InventoryClose());
