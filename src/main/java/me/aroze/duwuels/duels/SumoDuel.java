@@ -75,8 +75,8 @@ public class SumoDuel {
         }, 60);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            player1.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 10, 10);
-            player2.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 10, 10);
+            player1.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 15, 15);
+            player2.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 15, 15);
         }, 85);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
