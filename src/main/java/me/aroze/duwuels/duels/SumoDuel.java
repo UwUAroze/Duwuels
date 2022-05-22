@@ -1,7 +1,10 @@
 package me.aroze.duwuels.duels;
 
+import me.aroze.duwuels.Duwuels;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,7 +17,6 @@ public class SumoDuel {
 
     // Integer refers to arena number
     public static HashMap<Integer, ArrayList<UUID>> playing = new HashMap<>();
-
     public static boolean start() {
         if (!(queue.size() % 2 == 0)) return false;
 
@@ -34,20 +36,21 @@ public class SumoDuel {
         Player1.setGameMode(GameMode.SPECTATOR);
         Player2.setGameMode(GameMode.SPECTATOR);
 
-        Bukkit.broadcastMessage("a");
-
         World arenaWorld = Player1.getWorld();
         Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
 
-        Bukkit.broadcastMessage("b");
+        Bukkit.broadcastMessage("a");
 
-        new Thread(() -> {
+        Bukkit.getScheduler().runTaskAsynchronously(Duwuels.getInstance(), () -> {
             while (!(arenaMiddle.getBlock().getType().isAir())) {
                 arenaMiddle.add(500, 0, 0);
             }
-        }).start();
+            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> {
+                generateSumo(arenaMiddle);
+                });
+        });
 
-        Bukkit.broadcastMessage("c");
+        Bukkit.broadcastMessage("b");
 
         Location loc1 = arenaMiddle.clone().add(5, 0, -1);
         loc1.setYaw(90);
@@ -60,10 +63,18 @@ public class SumoDuel {
         Player1.teleport(loc1);
         Player2.teleport(loc2);
 
+        Bukkit.broadcastMessage("c");
+
+
+        return true;
+    }
+
+    public static void generateSumo(Location arenaMiddle) {
+
         Bukkit.broadcastMessage("d");
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
-
+        World arenaWorld = arenaMiddle.getWorld();
 
         for (int x = 0; x <= 8; x++) {
             for (int z = 0; z <= 8; z++) {
@@ -71,6 +82,8 @@ public class SumoDuel {
                 arenaWorld.spawnFallingBlock(start.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
             }
         }
+
+        Bukkit.broadcastMessage("e");
 
         Location start2 = arenaMiddle.clone().add(-3, 0, -5);
         for (int z = 0; z <= 10; z=z+10) {
@@ -87,9 +100,6 @@ public class SumoDuel {
                 arenaWorld.spawnFallingBlock(start3.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
             }
         }
-
-
-        return true;
     }
 
 }
