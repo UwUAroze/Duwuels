@@ -21,7 +21,9 @@ public class SumoDuel {
     public static void spawnFallingBlock(Location origin, Location at, Vector vector, int width, int length) {
         if (at.getBlockZ() - origin.getBlockZ() > length) return;
         int distanceFromOrigin = at.clone().add(vector).getBlockX() - origin.getBlockX();
-        if (distanceFromOrigin < 0 || distanceFromOrigin > width + 1) { // We have reached the end
+        if (distanceFromOrigin < 0 || distanceFromOrigin > width) { // We have reached the end
+            at.getWorld().getBlockAt(at).setType(Material.BARRIER);
+            at.getWorld().spawnFallingBlock(at.clone().add(0.5, 20.0, 0.5), Material.PINK_STAINED_GLASS.createBlockData());
             spawnFallingBlock(origin, at.clone().add(0.0, 0.0, 1.0), vector.clone().multiply(-1.0), width, length); // Inverse the direction
             return;
         }
