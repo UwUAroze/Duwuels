@@ -33,7 +33,6 @@ public class SumoDuel {
         player1.setGameMode(GameMode.SPECTATOR);
         player2.setGameMode(GameMode.SPECTATOR);
 
-        World arenaWorld = player1.getWorld();
         Location arenaMiddle = new Location(player1.getWorld(), 500000, 64, 500000);
 
         Bukkit.broadcastMessage("a");
