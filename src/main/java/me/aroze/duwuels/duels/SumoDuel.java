@@ -3,12 +3,12 @@ package me.aroze.duwuels.duels;
 import me.aroze.duwuels.Duwuels;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.*;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SumoDuel {
 
@@ -89,11 +89,18 @@ public class SumoDuel {
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
 
+
+        AtomicInteger delay = new AtomicInteger();
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            for (int x = 0; x <= 8; x++) {
-                for (int z = 0; z <= 8; z++) {
-                    arenaWorld.getBlockAt(start.clone().add(x, 0, z)).setType(Material.BARRIER);
-                    arenaWorld.spawnFallingBlock(start.clone().add(x, 20, z), Material.PINK_STAINED_GLASS.createBlockData());
+            for (double x = 0; x <= 8; x++) {
+                for (double z = 0; z <= 8; z++) {
+                    double finalX = x+0.5;
+                    double finalZ = z+0.5;
+                    delay.getAndIncrement();
+                    Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+                        arenaWorld.getBlockAt(start.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
+                        arenaWorld.spawnFallingBlock(start.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
+                    }, delay.get());
                 }
             }
 
