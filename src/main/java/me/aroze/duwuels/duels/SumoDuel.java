@@ -62,7 +62,7 @@ public class SumoDuel {
     public static void continueSynchronously(Location arenaMiddle, Player player1, Player player2) {
 
         int arenaNum = (arenaMiddle.getBlockX() - 500000)/500;
-        Bukkit.broadcastMessage("Playing on: Arena: #" + arenaNum);
+        Bukkit.broadcastMessage("Playing on: Arena #" + arenaNum);
         playing.put(arenaNum, new ArrayList<UUID>(){
             {
                 add(player1.getUniqueId());
