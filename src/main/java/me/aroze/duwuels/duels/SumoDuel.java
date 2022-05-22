@@ -45,9 +45,7 @@ public class SumoDuel {
             while (!(arenaMiddle.getBlock().getType().isAir())) {
                 arenaMiddle.add(500, 0, 0);
             }
-            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> {
-                generateSumo(arenaMiddle);
-                });
+            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> generateSumo(arenaMiddle));
         });
 
         Bukkit.broadcastMessage("b");
