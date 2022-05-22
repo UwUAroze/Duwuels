@@ -83,7 +83,7 @@ public class SumoDuel {
             player2.teleport(loc2);
             player1.setGameMode(GameMode.ADVENTURE);
             player2.setGameMode(GameMode.ADVENTURE);
-        }, 20);
+        }, 65);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
@@ -111,7 +111,7 @@ public class SumoDuel {
                     arenaWorld.spawnFallingBlock(start3.clone().add(x, 20, z), Material.PINK_STAINED_GLASS, (byte) 0);
                 }
             }
-        }, 65);
+        }, 25);
     }
 
 }
