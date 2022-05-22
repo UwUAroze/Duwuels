@@ -50,7 +50,6 @@ public class DeleteAllArenas implements CommandExecutor {
                             for (int x=0; x<=20; x++) {
                                 for (int z = 0; z <= 20; z++) {
                                     start.add(x,y,z).getBlock().setType(Material.AIR);
-                                    player.sendMessage(ChatUtils.color("&a⚠ &7Successfully deleted block: &a" + x + ", " + y + ", " + z + " &7of arena: &a#" + finalI) );
                                 }
                             }
                         }
