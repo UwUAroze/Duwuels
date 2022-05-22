@@ -113,7 +113,7 @@ public class SumoDuel {
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     arenaWorld.getBlockAt(start2.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
                     arenaWorld.spawnFallingBlock(start2.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
-                }, 2L * delay.get());
+                }, 3L * delay.get());
             }
         }
 
@@ -127,7 +127,7 @@ public class SumoDuel {
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     arenaWorld.getBlockAt(start3.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
                     arenaWorld.spawnFallingBlock(start3.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
-                }, 2L * delay.get());
+                }, 3L * delay.get());
             }
         }
     }
