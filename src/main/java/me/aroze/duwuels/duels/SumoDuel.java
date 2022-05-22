@@ -37,11 +37,13 @@ public class SumoDuel {
         Player1.setGameMode(GameMode.SPECTATOR);
         Player2.setGameMode(GameMode.SPECTATOR);
 
+        Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
+
         new Thread(() -> {
-            Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
             while (arenaMiddle.getBlock().getType().isAir()) {
                 arenaMiddle.add(500, 0, 0);
             }
+        }).start();
 
             Location loc1 = arenaMiddle.clone().add(5, 0, -1);
             loc1.setYaw(90);
@@ -80,7 +82,6 @@ public class SumoDuel {
                     Player1.getWorld().spawnFallingBlock(start3.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
                 }
             }
-        }).start();
 
         return true;
     }
