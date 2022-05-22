@@ -43,6 +43,8 @@ public class PlayerJoin implements Listener {
                     }
                 }
 
+                if (loser == null || winner == null) return;
+
                 loser.setGameMode(GameMode.SPECTATOR);
                 winner.setGameMode(GameMode.SPECTATOR);
 
