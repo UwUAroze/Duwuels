@@ -29,27 +29,34 @@ public class PlayerJoin implements Listener {
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
-            if ( y < 65 && !(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR)) && SumoDuel.playing.get(1).contains(e.getPlayer().getUniqueId() ) ) {
+            if ( y < 65 && !(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR))) {
 
-                Player loser = e.getPlayer();
-                SumoDuel.playing.get(1).remove(loser.getUniqueId());
+                Player loser = null;
+                Player winner = null;
 
-                Player winner = Bukkit.getPlayer(SumoDuel.playing.get(1).get(0));
-                SumoDuel.playing.get(1).remove(winner.getUniqueId());
+                for (Integer key : SumoDuel.playing.keySet()) {
+                    if (SumoDuel.playing.get(key).contains(e.getPlayer().getUniqueId())) {
+                        loser = e.getPlayer();
+                        SumoDuel.playing.get(key).remove(loser.getUniqueId());
+                        winner = Bukkit.getPlayer(SumoDuel.playing.get(key).get(0));
+                        SumoDuel.playing.get(key).remove(winner.getUniqueId());
+                    }
+                }
 
                 loser.setGameMode(GameMode.SPECTATOR);
                 winner.setGameMode(GameMode.SPECTATOR);
 
-                loser.sendTitle(ChatUtils.color("&cYou died!"), ChatUtils.color("&7Better luck next time :p"),5,15,5);
+                loser.sendTitle(ChatUtils.color("&cYou died!"), ChatUtils.color("&7Better luck next time :p"), 5, 15, 5);
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     e.getPlayer().setGameMode(GameMode.ADVENTURE);
                     e.getPlayer().teleport(spawnLoc);
                 }, 25);
 
-                winner.sendTitle(ChatUtils.color("&aYou won!"), ChatUtils.color("&7good job."),5,15,5);
+                winner.sendTitle(ChatUtils.color("&aYou won!"), ChatUtils.color("&7good job."), 5, 15, 5);
+                Player finalWinner = winner;
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-                    winner.setGameMode(GameMode.ADVENTURE);
-                    winner.teleport(spawnLoc);
+                    finalWinner.setGameMode(GameMode.ADVENTURE);
+                    finalWinner.teleport(spawnLoc);
                 }, 25);
 
             }
