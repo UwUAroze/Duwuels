@@ -90,36 +90,34 @@ public class SumoDuel {
         World arenaWorld = arenaMiddle.getWorld();
 
 
-        AtomicInteger delay = new AtomicInteger();
-        Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            for (double x = 0; x <= 8; x++) {
-                for (double z = 0; z <= 8; z++) {
-                    double finalX = x+0.5;
-                    double finalZ = z+0.5;
-                    delay.getAndIncrement();
-                    Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-                        arenaWorld.getBlockAt(start.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
-                        arenaWorld.spawnFallingBlock(start.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
-                    }, delay.get());
-                }
+    AtomicInteger delay = new AtomicInteger();
+        for (double x = 0; x <= 8; x++) {
+            for (double z = 0; z <= 8; z++) {
+                double finalX = x+0.5;
+                double finalZ = z+0.5;
+                delay.getAndIncrement();
+                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+                    arenaWorld.getBlockAt(start.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
+                }, delay.get());
             }
+        }
 
-            Location start2 = arenaMiddle.clone().add(-3, 0, -5);
-            for (int z = 0; z <= 10; z=z+10) {
-                for (int x = 0; x < 7; x++) {
-                    arenaWorld.getBlockAt(start2.clone().add(x, 0, z)).setType(Material.BARRIER);
-                    arenaWorld.spawnFallingBlock(start2.clone().add(x, 20, z), Material.PINK_STAINED_GLASS.createBlockData());
-                }
+        Location start2 = arenaMiddle.clone().add(-3, 0, -5);
+        for (int z = 0; z <= 10; z=z+10) {
+            for (int x = 0; x < 7; x++) {
+                arenaWorld.getBlockAt(start2.clone().add(x, 0, z)).setType(Material.BARRIER);
+                arenaWorld.spawnFallingBlock(start2.clone().add(x, 20, z), Material.PINK_STAINED_GLASS.createBlockData());
             }
+        }
 
-            Location start3 = arenaMiddle.clone().add(-5, 0, -3);
-            for (int x = 0; x <= 10; x=x+10) {
-                for (int z = 0; z < 7; z++) {
-                    arenaWorld.getBlockAt(start3.clone().add(x, 0, z)).setType(Material.BARRIER);
-                    arenaWorld.spawnFallingBlock(start3.clone().add(x, 20, z), Material.PINK_STAINED_GLASS.createBlockData());
-                }
+        Location start3 = arenaMiddle.clone().add(-5, 0, -3);
+        for (int x = 0; x <= 10; x=x+10) {
+            for (int z = 0; z < 7; z++) {
+                arenaWorld.getBlockAt(start3.clone().add(x, 0, z)).setType(Material.BARRIER);
+                arenaWorld.spawnFallingBlock(start3.clone().add(x, 20, z), Material.PINK_STAINED_GLASS.createBlockData());
             }
-        }, 25);
+        }
     }
 
 }
