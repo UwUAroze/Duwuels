@@ -27,41 +27,39 @@ public class DeleteAllArenas implements CommandExecutor {
 
         Location arenaMiddle = new Location(player.getWorld(), 500000, 64, 500000);
 
-        Bukkit.getScheduler().runTaskAsynchronously(Duwuels.getInstance(), () -> {
-
-            for (int i = 1; i <= 1000; i++) {
-
-                Location block = arenaMiddle.clone().add(i*500, 0, 0);
-                player.sendMessage(ChatUtils.color("&7⚠ Checking arena location #" + i));
-
-                if (!(block.getBlock().getType().isAir())) {
-
-                    player.sendMessage(ChatUtils.color("&c⚠ &7Found arena: &a#" + i));
-
-                    int finalI = i;
-                    Location finalBlock = block;
-
-                    Bukkit.getScheduler().runTask(Duwuels.getInstance(), () ->
-                        player.sendMessage(ChatUtils.color("&c⚠ &7Started deletion of arena: &a#" + finalI + " &7[" + finalBlock.getX() + ", " + finalBlock.getY() + ", " + finalBlock.getZ() + "&7]")));
-
-                        Location start = finalBlock.clone().add(-8, 0, -8);
-
-                        for (int y = 0; y <= 1; y++) {
-                            for (int x=0; x<=20; x++) {
-                                for (int z = 0; z <= 20; z++) {
-                                    start.add(x,y,z).getBlock().setType(Material.AIR);
-                                }
-                            }
-                        }
-                        player.sendMessage(ChatUtils.color("&a⚠ &aFinished deletion of arena: &a#" + finalI));
-                }
-            }
-
-//            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () ->
-//                player.sendMessage("a"));
-        });
-
+        Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> continueSynchronously(arenaMiddle, player));
 
         return true;
+    }
+
+    public static void continueSynchronously(Location arenaMiddle, Player player) {
+
+        for (int i = 1; i <= 100; i++) {
+
+            Location block = arenaMiddle.clone().add(i * 500, 0, 0);
+            player.sendMessage(ChatUtils.color("&7⚠ Checking arena location #" + i));
+
+            if (!(block.getBlock().getType().isAir())) {
+
+                player.sendMessage(ChatUtils.color("&c⚠ &7Found arena: &a#" + i));
+
+                int finalI = i;
+
+                Bukkit.getScheduler().runTask(Duwuels.getInstance(), () ->
+                        player.sendMessage(ChatUtils.color("&c⚠ &7Started deletion of arena: &a#" + finalI + " &7[" + block.getX() + ", " + block.getY() + ", " + block.getZ() + "&7]")));
+
+                Location start = block.clone().add(-8, 0, -8);
+
+                for (int y = 0; y <= 1; y++) {
+                    for (int x = 0; x <= 20; x++) {
+                        for (int z = 0; z <= 20; z++) {
+                            start.clone().add(x, y, z).getBlock().setType(Material.AIR); //why does it think this is async
+                        }
+                    }
+                }
+                player.sendMessage(ChatUtils.color("&a⚠ &aFinished deletion of arena: &a#" + finalI));
+
+            }
+        }
     }
 }
