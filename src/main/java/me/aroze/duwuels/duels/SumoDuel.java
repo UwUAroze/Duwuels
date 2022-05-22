@@ -34,26 +34,31 @@ public class SumoDuel {
             }
         } );
 
-        Location loc1 = new Location(Player1.getWorld(), 5,65,0);
-        loc1.setYaw(90);
-        loc1.setPitch(0);
-
-        Location loc2 = new Location(Player1.getWorld(), -5,65,0);
-        loc2.setYaw(-90);
-        loc2.setPitch(0);
-
         Player1.setGameMode(GameMode.SPECTATOR);
         Player2.setGameMode(GameMode.SPECTATOR);
-
-        Player1.teleport(loc1);
-        Player2.teleport(loc2);
 
         Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
         while (!(arenaMiddle.getBlock().getType().isAir())) {
             arenaMiddle.add(500, 0, 0);
         }
 
+        Location loc1 = arenaMiddle.clone().add(5, 0, -1);
+        loc1.setYaw(90);
+        loc1.setPitch(0);
+
+        Location loc2 = arenaMiddle.clone().add(-5, 0, 1);
+        loc2.setYaw(-90);
+        loc2.setPitch(0);
+
+        Player1.teleport(loc1);
+        Player2.teleport(loc2);
+
+
         Location start = arenaMiddle.clone().add(-4, 0, -4);
+
+
+
+
 
 
         for (int x = 0; x <= 8; x++) {
