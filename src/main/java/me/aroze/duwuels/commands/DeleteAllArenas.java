@@ -46,7 +46,7 @@ public class DeleteAllArenas implements CommandExecutor {
                 int finalI = i;
 
                 Bukkit.getScheduler().runTask(Duwuels.getInstance(), () ->
-                        player.sendMessage(ChatUtils.color("&c⚠ &7Started deletion of arena: &a#" + finalI + " &7[" + block.getX() + ", " + block.getY() + ", " + block.getZ() + "&7]")));
+                player.sendMessage(ChatUtils.color("&c⚠ &7Started deletion of arena: &a#" + finalI + " &7[" + block.getX() + ", " + block.getY() + ", " + block.getZ() + "&7]")));
 
                 Location start = block.clone().add(-8, 0, -8);
 
