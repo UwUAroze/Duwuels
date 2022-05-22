@@ -42,6 +42,9 @@ public class SumoDuel {
         loc2.setYaw(-90);
         loc2.setPitch(0);
 
+        Player1.setGameMode(GameMode.SPECTATOR);
+        Player2.setGameMode(GameMode.SPECTATOR);
+
         Player1.teleport(loc1);
         Player2.teleport(loc2);
 
