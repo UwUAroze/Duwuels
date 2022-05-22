@@ -68,11 +68,11 @@ public class SumoDuel {
 
     public static void continueSynchronously(Location arenaMiddle, Player player1, Player player2) {
 
-        Location loc1 = arenaMiddle.clone().add(5, 2, -1);
+        Location loc1 = arenaMiddle.clone().add(5, 2, 0);
         loc1.setYaw(90);
         loc1.setPitch(0);
 
-        Location loc2 = arenaMiddle.clone().add(-5, 2, 1);
+        Location loc2 = arenaMiddle.clone().add(-5, 2, 0);
         loc2.setYaw(-90);
         loc2.setPitch(0);
 
