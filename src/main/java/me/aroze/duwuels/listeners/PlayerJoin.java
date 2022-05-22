@@ -22,7 +22,7 @@ public class PlayerJoin implements Listener {
         e.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(100);
 
 
-        Location spawnLoc = Bukkit.getWorld("originallobby").getSpawnLocation();
+        Location spawnLoc = Bukkit.getWorld("lobby").getSpawnLocation();
         spawnLoc.setYaw(135);
         spawnLoc.setPitch(0);
         e.getPlayer().teleport(spawnLoc);
