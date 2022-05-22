@@ -83,33 +83,35 @@ public class SumoDuel {
             player2.teleport(loc2);
             player1.setGameMode(GameMode.ADVENTURE);
             player2.setGameMode(GameMode.ADVENTURE);
-        }, 65);
+        }, 20);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
 
-        for (int x = 0; x <= 8; x++) {
-            for (int z = 0; z <= 8; z++) {
-                arenaWorld.getBlockAt(start.clone().add(x, 0, z)).setType(Material.BARRIER);
-                arenaWorld.spawnFallingBlock(start.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+        Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+            for (int x = 0; x <= 8; x++) {
+                for (int z = 0; z <= 8; z++) {
+                    arenaWorld.getBlockAt(start.clone().add(x, 0, z)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+                }
             }
-        }
 
-        Location start2 = arenaMiddle.clone().add(-3, 0, -5);
-        for (int z = 0; z <= 10; z=z+10) {
-            for (int x = 0; x < 7; x++) {
-                arenaWorld.getBlockAt(start2.clone().add(x, 0, z)).setType(Material.BARRIER);
-                arenaWorld.spawnFallingBlock(start2.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+            Location start2 = arenaMiddle.clone().add(-3, 0, -5);
+            for (int z = 0; z <= 10; z=z+10) {
+                for (int x = 0; x < 7; x++) {
+                    arenaWorld.getBlockAt(start2.clone().add(x, 0, z)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start2.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+                }
             }
-        }
 
-        Location start3 = arenaMiddle.clone().add(-5, 0, -3);
-        for (int x = 0; x <= 10; x=x+10) {
-            for (int z = 0; z < 7; z++) {
-                arenaWorld.getBlockAt(start3.clone().add(x, 0, z)).setType(Material.BARRIER);
-                arenaWorld.spawnFallingBlock(start3.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+            Location start3 = arenaMiddle.clone().add(-5, 0, -3);
+            for (int x = 0; x <= 10; x=x+10) {
+                for (int z = 0; z < 7; z++) {
+                    arenaWorld.getBlockAt(start3.clone().add(x, 0, z)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start3.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
+                }
             }
-        }
+        }, 65);
     }
 
 }
