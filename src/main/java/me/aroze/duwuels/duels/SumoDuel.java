@@ -40,7 +40,7 @@ public class SumoDuel {
         Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
 
         new Thread(() -> {
-            while (arenaMiddle.getBlock().getType().isAir()) {
+            while (!(arenaMiddle.getBlock().getType().isAir())) {
                 arenaMiddle.add(500, 0, 0);
             }
         }).start();
