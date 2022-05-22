@@ -84,7 +84,7 @@ public class SumoDuel {
             player2.teleport(loc2);
             player1.setGameMode(GameMode.ADVENTURE);
             player2.setGameMode(GameMode.ADVENTURE);
-        }, 110);
+        }, 120);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
