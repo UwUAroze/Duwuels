@@ -29,7 +29,7 @@ public class PlayerJoin implements Listener {
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
-            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && SumoDuel.playing.get(1).contains(e.getPlayer().getUniqueId())) {
+            if ( e.getPlayer().getWorld().getName().equals("Duel-Sumo-1") && y < 65 && !(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR)) && SumoDuel.playing.get(1).contains(e.getPlayer().getUniqueId() ) ) {
 
                 Player loser = e.getPlayer();
                 SumoDuel.playing.get(1).remove(loser.getUniqueId());
