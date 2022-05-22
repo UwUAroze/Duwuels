@@ -21,7 +21,7 @@ public class SumoDuel {
     public static void spawnFallingBlock(Location origin, Location at, Vector vector, int width, int length) {
         if (at.getBlockZ() - origin.getBlockZ() > length) return;
         int distanceFromOrigin = at.clone().add(vector).getBlockX() - origin.getBlockX();
-        if (distanceFromOrigin < 0 || distanceFromOrigin > width) { // We have reached the end
+        if (distanceFromOrigin < 0 || distanceFromOrigin > width + 1) { // We have reached the end
             spawnFallingBlock(origin, at.clone().add(0.0, 0.0, 1.0), vector.clone().multiply(-1.0), width, length); // Inverse the direction
             return;
         }
@@ -126,33 +126,33 @@ public class SumoDuel {
 
 
 
-//        delay = new AtomicInteger();
-//        Location start2 = arenaMiddle.clone().add(-3, 0, -5);
-//        for (int z = 0; z <= 10; z=z+10) {
-//            for (int x = 0; x < 7; x++) {
-//                double finalX = x+0.5;
-//                double finalZ = z+0.5;
-//                delay.getAndIncrement();
-//                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-//                    arenaWorld.getBlockAt(start2.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
-//                    arenaWorld.spawnFallingBlock(start2.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
-//                }, 5L * delay.get());
-//            }
-//        }
-//
-//        delay = new AtomicInteger();
-//        Location start3 = arenaMiddle.clone().add(-5, 0, -3);
-//        for (int x = 0; x <= 10; x=x+10) {
-//            for (int z = 0; z < 7; z++) {
-//                double finalX = x+0.5;
-//                double finalZ = z+0.5;
-//                delay.getAndIncrement();
-//                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-//                    arenaWorld.getBlockAt(start3.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
-//                    arenaWorld.spawnFallingBlock(start3.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
-//                }, 5L * delay.get());
-//            }
-//        }
+        delay = new AtomicInteger();
+        Location start2 = arenaMiddle.clone().add(-3, 0, -5);
+        for (int z = 0; z <= 10; z=z+10) {
+            for (int x = 0; x < 7; x++) {
+                double finalX = x+0.5;
+                double finalZ = z+0.5;
+                delay.getAndIncrement();
+                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+                    arenaWorld.getBlockAt(start2.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start2.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
+                }, 5L * delay.get());
+            }
+        }
+
+        delay = new AtomicInteger();
+        Location start3 = arenaMiddle.clone().add(-5, 0, -3);
+        for (int x = 0; x <= 10; x=x+10) {
+            for (int z = 0; z < 7; z++) {
+                double finalX = x+0.5;
+                double finalZ = z+0.5;
+                delay.getAndIncrement();
+                Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
+                    arenaWorld.getBlockAt(start3.clone().add(finalX, 0, finalZ)).setType(Material.BARRIER);
+                    arenaWorld.spawnFallingBlock(start3.clone().add(finalX, 20, finalZ), Material.PINK_STAINED_GLASS.createBlockData());
+                }, 5L * delay.get());
+            }
+        }
     }
 
 }
