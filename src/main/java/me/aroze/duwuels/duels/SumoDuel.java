@@ -3,10 +3,7 @@ package me.aroze.duwuels.duels;
 import me.aroze.duwuels.Duwuels;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scheduler.BukkitTask;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -20,24 +17,24 @@ public class SumoDuel {
     public static boolean start() {
         if (!(queue.size() % 2 == 0)) return false;
 
-        Player Player1 = Bukkit.getPlayer(queue.get(0));
-        Player Player2 = Bukkit.getPlayer(queue.get(1));
+        Player player1 = Bukkit.getPlayer(queue.get(0));
+        Player player2 = Bukkit.getPlayer(queue.get(1));
 
-        queue.remove(Player1.getUniqueId());
-        queue.remove(Player2.getUniqueId());
+        queue.remove(player1.getUniqueId());
+        queue.remove(player2.getUniqueId());
 
         playing.put(1, new ArrayList<UUID>(){
             {
-                add(Player1.getUniqueId());
-                add(Player2.getUniqueId());
+                add(player1.getUniqueId());
+                add(player2.getUniqueId());
             }
         } );
 
-        Player1.setGameMode(GameMode.SPECTATOR);
-        Player2.setGameMode(GameMode.SPECTATOR);
+        player1.setGameMode(GameMode.SPECTATOR);
+        player2.setGameMode(GameMode.SPECTATOR);
 
-        World arenaWorld = Player1.getWorld();
-        Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
+        World arenaWorld = player1.getWorld();
+        Location arenaMiddle = new Location(player1.getWorld(), 500000, 64, 500000);
 
         Bukkit.broadcastMessage("a");
 
@@ -45,10 +42,16 @@ public class SumoDuel {
             while (!(arenaMiddle.getBlock().getType().isAir())) {
                 arenaMiddle.add(500, 0, 0);
             }
-            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> generateSumo(arenaMiddle));
+            Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> continueSynchronously(arenaMiddle, player1, player2));
         });
 
         Bukkit.broadcastMessage("b");
+
+
+        return true;
+    }
+
+    public static void continueSynchronously(Location arenaMiddle, Player player1, Player player2) {
 
         Location loc1 = arenaMiddle.clone().add(5, 0, -1);
         loc1.setYaw(90);
@@ -58,16 +61,8 @@ public class SumoDuel {
         loc2.setYaw(-90);
         loc2.setPitch(0);
 
-        Player1.teleport(loc1);
-        Player2.teleport(loc2);
-
-        Bukkit.broadcastMessage("c");
-
-
-        return true;
-    }
-
-    public static void generateSumo(Location arenaMiddle) {
+        player1.teleport(loc1);
+        player2.teleport(loc2);
 
         Bukkit.broadcastMessage("d");
 
