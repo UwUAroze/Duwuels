@@ -60,18 +60,22 @@ public class SumoDuel {
         player1.teleport(loc1);
         player2.teleport(loc2);
 
-        player1.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player2), ChatUtils.color("&7Beginning shortly, &aGood Luck!"), 5, 10, 5);
+        player1.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player2), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 10, 5);
+        player2.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player1), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 10, 5);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
             player1.sendTitle(ChatUtils.color("&7Starting in &63..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 10, 10, 0);
+            player2.sendTitle(ChatUtils.color("&7Starting in &63..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 10, 10, 0);
         }, 20);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
             player1.sendTitle(ChatUtils.color("&7Starting in &e2..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 20, 0);
+            player2.sendTitle(ChatUtils.color("&7Starting in &e2..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 20, 0);
         }, 40);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
             player1.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 20, 0);
+            player2.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 20, 0);
         }, 60);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
