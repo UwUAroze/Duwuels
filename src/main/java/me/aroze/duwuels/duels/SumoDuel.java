@@ -48,7 +48,7 @@ public class SumoDuel {
         Player1.teleport(loc1);
         Player2.teleport(loc2);
 
-        Location arenaMiddle = new Location(Player1.getWorld(), 500000, 0, 500000);
+        Location arenaMiddle = new Location(Player1.getWorld(), 500000, 64, 500000);
         while (!(arenaMiddle.getBlock().getType().isAir())) {
             arenaMiddle.add(500, 0, 0);
         }
