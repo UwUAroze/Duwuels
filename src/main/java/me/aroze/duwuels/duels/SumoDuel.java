@@ -79,10 +79,10 @@ public class SumoDuel {
         }, 50);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            player1.setGameMode(GameMode.ADVENTURE);
-            player2.setGameMode(GameMode.ADVENTURE);
             player1.teleport(loc1);
             player2.teleport(loc2);
+            player1.setGameMode(GameMode.ADVENTURE);
+            player2.setGameMode(GameMode.ADVENTURE);
         }, 65);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
