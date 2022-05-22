@@ -9,7 +9,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import sun.util.locale.provider.LocaleDataMetaInfo;
 
 public class DeleteAllArenas implements CommandExecutor {
 
