@@ -35,16 +35,12 @@ public class SumoDuel {
 
         Location arenaMiddle = new Location(player1.getWorld(), 500000, 64, 500000);
 
-        Bukkit.broadcastMessage("a");
-
         Bukkit.getScheduler().runTaskAsynchronously(Duwuels.getInstance(), () -> {
             while (!(arenaMiddle.getBlock().getType().isAir())) {
                 arenaMiddle.add(500, 0, 0);
             }
             Bukkit.getScheduler().runTask(Duwuels.getInstance(), () -> continueSynchronously(arenaMiddle, player1, player2));
         });
-
-        Bukkit.broadcastMessage("b");
 
 
         return true;
@@ -63,8 +59,6 @@ public class SumoDuel {
         player1.teleport(loc1);
         player2.teleport(loc2);
 
-        Bukkit.broadcastMessage("d");
-
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
 
@@ -74,8 +68,6 @@ public class SumoDuel {
                 arenaWorld.spawnFallingBlock(start.clone().add(x, 15, z), Material.PINK_STAINED_GLASS, (byte) 0);
             }
         }
-
-        Bukkit.broadcastMessage("e");
 
         Location start2 = arenaMiddle.clone().add(-3, 0, -5);
         for (int z = 0; z <= 10; z=z+10) {
