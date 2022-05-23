@@ -35,6 +35,14 @@ public class DuelCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        for (Integer key : SumoDuel.playing.keySet()) {
+            if (SumoDuel.playing.get(key).contains(((Player) sender).getUniqueId())) {
+                sender.sendMessage(ChatUtils.color("&c⚠ &7You're already in a duel!"));
+                return true;
+            }
+        }
+
+
         if (args.length > 1) {
             sender.sendMessage(ChatUtils.color("\n &6⚠ &eDuels &7» &eSyntax:\n  &f/duel &7[Public Duel Queues] \n  &f/duel <player> &7[Private Duel]\n "));
             return true;
