@@ -34,7 +34,7 @@ public class DeleteAllArenas implements CommandExecutor {
 
     public static void continueSynchronously(Location arenaMiddle, Player player) {
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 0; i <= 100; i++) {
 
             Location block = arenaMiddle.clone().add(i * 500, 0, 0);
             player.sendMessage(ChatUtils.color("&7⚠ Checking arena location #" + i));
