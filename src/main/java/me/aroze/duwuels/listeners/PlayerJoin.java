@@ -65,11 +65,12 @@ public class PlayerJoin implements Listener {
                 }, 25);
 
                 Location arenaMiddle = new Location(winner.getWorld(), (500*arenaNum) + 500000, 64, 500000);
+                Location start = arenaMiddle.clone().add(-4, 0, -4);
 
                 for (int y2 = 0; y2 <= 1; y2++) {
                     for (int x = 0; x <= 20; x++) {
                         for (int z = 0; z <= 20; z++) {
-                            arenaMiddle.clone().add(x, y2, z).getBlock().setType(Material.AIR);
+                            start.clone().add(x, y2, z).getBlock().setType(Material.AIR);
                         }
                     }
                 }
