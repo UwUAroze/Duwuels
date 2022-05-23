@@ -95,8 +95,8 @@ public class SumoDuel {
         }, 60);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            player1.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 15, 15);
-            player2.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 15, 15);
+            player1.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player2.getName()), 0, 15, 10);
+            player2.sendTitle(ChatUtils.color("&7Starting in &c1..."), ChatUtils.color("&7Opponent: &c" + player1.getName()), 0, 15, 10);
         }, 85);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
@@ -104,7 +104,7 @@ public class SumoDuel {
             player2.teleport(loc2);
             player1.setGameMode(GameMode.ADVENTURE);
             player2.setGameMode(GameMode.ADVENTURE);
-        }, 120);
+        }, 110);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
         World arenaWorld = arenaMiddle.getWorld();
