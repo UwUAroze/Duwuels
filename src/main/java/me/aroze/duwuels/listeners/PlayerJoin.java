@@ -6,6 +6,7 @@ import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,6 +34,7 @@ public class PlayerJoin implements Listener {
 
                 Player loser = null;
                 Player winner = null;
+                Integer arenaNum = null;
 
                 for (Integer key : SumoDuel.playing.keySet()) {
                     if (SumoDuel.playing.get(key).contains(e.getPlayer().getUniqueId())) {
@@ -40,6 +42,7 @@ public class PlayerJoin implements Listener {
                         SumoDuel.playing.get(key).remove(loser.getUniqueId());
                         winner = Bukkit.getPlayer(SumoDuel.playing.get(key).get(0));
                         SumoDuel.playing.get(key).remove(winner.getUniqueId());
+                        arenaNum = key;
                     }
                 }
 
@@ -60,6 +63,18 @@ public class PlayerJoin implements Listener {
                     finalWinner.setGameMode(GameMode.ADVENTURE);
                     finalWinner.teleport(spawnLoc);
                 }, 25);
+
+                Location arenaMiddle = new Location(winner.getWorld(), (500*arenaNum) + 500000, 64, 500000);
+
+                for (int y2 = 0; y2 <= 1; y2++) {
+                    for (int x = 0; x <= 20; x++) {
+                        for (int z = 0; z <= 20; z++) {
+                            arenaMiddle.clone().add(x, y2, z).getBlock().setType(Material.AIR);
+                        }
+                    }
+                }
+
+
 
             }
         } , 0, 1);
