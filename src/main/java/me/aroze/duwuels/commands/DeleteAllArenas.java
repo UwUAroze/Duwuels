@@ -53,10 +53,11 @@ public class DeleteAllArenas implements CommandExecutor {
                 for (int y = 0; y <= 1; y++) {
                     for (int x = 0; x <= 20; x++) {
                         for (int z = 0; z <= 20; z++) {
-                            start.clone().add(x, y, z).getBlock().setType(Material.AIR); //why does it think this is async
+                            start.clone().add(x, y, z).getBlock().setType(Material.AIR);
                         }
                     }
                 }
+
                 player.sendMessage(ChatUtils.color("&a⚠ &aFinished deletion of arena: &a#" + finalI));
 
             }
