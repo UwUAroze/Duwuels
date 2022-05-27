@@ -30,7 +30,7 @@ public class PlayerJoin implements Listener {
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
-            if ( y < 65 && !(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR))) {
+            if ( y < 65 ) {
 
                 Player loser = null;
                 Player winner = null;
@@ -47,6 +47,10 @@ public class PlayerJoin implements Listener {
                 }
 
                 if (loser == null || winner == null) return;
+
+                if (loser.getGameMode().equals(GameMode.SPECTATOR) || winner.getGameMode().equals(GameMode.SPECTATOR)) return;
+
+                Bukkit.broadcastMessage(y + "");
 
                 loser.setGameMode(GameMode.SPECTATOR);
                 winner.setGameMode(GameMode.SPECTATOR);

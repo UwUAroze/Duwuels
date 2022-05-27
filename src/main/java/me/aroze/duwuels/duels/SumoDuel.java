@@ -43,6 +43,9 @@ public class SumoDuel {
         queue.remove(player1.getUniqueId());
         queue.remove(player2.getUniqueId());
 
+        player1.setGameMode(GameMode.SPECTATOR);
+        player2.setGameMode(GameMode.SPECTATOR);
+
         Location arenaMiddle = new Location(player1.getWorld(), 500000, 64, 500000);
 
         Bukkit.getScheduler().runTaskAsynchronously(Duwuels.getInstance(), () -> {
@@ -77,9 +80,6 @@ public class SumoDuel {
 
         player1.teleport(loc1);
         player2.teleport(loc2);
-
-        player1.setGameMode(GameMode.SPECTATOR);
-        player2.setGameMode(GameMode.SPECTATOR);
 
 
         player1.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player2.getName()), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 20, 10);
