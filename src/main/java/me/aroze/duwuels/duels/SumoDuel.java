@@ -75,11 +75,12 @@ public class SumoDuel {
         loc2.setYaw(-90);
         loc2.setPitch(0);
 
+        player1.teleport(loc1);
+        player2.teleport(loc2);
+
         player1.setGameMode(GameMode.SPECTATOR);
         player2.setGameMode(GameMode.SPECTATOR);
 
-        player1.teleport(loc1);
-        player2.teleport(loc2);
 
         player1.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player2.getName()), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 20, 10);
         player2.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player1.getName()), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 20, 10);
@@ -100,10 +101,10 @@ public class SumoDuel {
         }, 85);
 
         Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
-            player1.teleport(loc1);
-            player2.teleport(loc2);
             player1.setGameMode(GameMode.ADVENTURE);
             player2.setGameMode(GameMode.ADVENTURE);
+            player1.teleport(loc1);
+            player2.teleport(loc2);
         }, 110);
 
         Location start = arenaMiddle.clone().add(-4, 0, -4);
