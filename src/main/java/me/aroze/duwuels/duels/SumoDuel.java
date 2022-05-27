@@ -43,10 +43,10 @@ public class SumoDuel {
         queue.remove(player1.getUniqueId());
         queue.remove(player2.getUniqueId());
 
+        Location arenaMiddle = new Location(player1.getWorld(), 500000, 65, 500000);
+
         player1.setGameMode(GameMode.SPECTATOR);
         player2.setGameMode(GameMode.SPECTATOR);
-
-        Location arenaMiddle = new Location(player1.getWorld(), 500000, 64, 500000);
 
         Bukkit.getScheduler().runTaskAsynchronously(Duwuels.getInstance(), () -> {
             while (!(arenaMiddle.getBlock().getType().isAir())) {
