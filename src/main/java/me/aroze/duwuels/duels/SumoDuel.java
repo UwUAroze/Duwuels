@@ -63,23 +63,24 @@ public class SumoDuel {
 
         int arenaNum = (arenaMiddle.getBlockX() - 500000)/500;
         Bukkit.broadcastMessage("Playing on: Arena #" + arenaNum);
+
+        Location loc1 = arenaMiddle.clone().add(5, 2, 0);
+        loc1.setYaw(90);
+        loc1.setPitch(0);
+
+        Location loc2 = arenaMiddle.clone().add(-4.5, 2, 0);
+        loc2.setYaw(-90);
+        loc2.setPitch(0);
+
+        player1.teleport(loc1);
+        player2.teleport(loc2);
+
         playing.put(arenaNum, new ArrayList<UUID>(){
             {
                 add(player1.getUniqueId());
                 add(player2.getUniqueId());
             }
         } );
-
-        Location loc1 = arenaMiddle.clone().add(5, 2, 0);
-        loc1.setYaw(90);
-        loc1.setPitch(0);
-
-        Location loc2 = arenaMiddle.clone().add(-5, 2, 0);
-        loc2.setYaw(-90);
-        loc2.setPitch(0);
-
-        player1.teleport(loc1);
-        player2.teleport(loc2);
 
 
         player1.sendTitle(ChatUtils.color("&7Found an opponent: &c" + player2.getName()), ChatUtils.color("&7The game will begin shortly. &aGood Luck!"), 5, 20, 10);
