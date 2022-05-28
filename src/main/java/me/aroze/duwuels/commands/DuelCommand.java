@@ -1,6 +1,7 @@
 package me.aroze.duwuels.commands;
 
 import me.aroze.duwuels.Duwuels;
+import me.aroze.duwuels.duels.QueueHandler;
 import me.aroze.duwuels.duels.SumoDuel;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.Bukkit;
@@ -44,6 +45,11 @@ public class DuelCommand implements CommandExecutor {
 
 
         if (args.length > 1) {
+
+            if (args[0].equalsIgnoreCase("sumo")) {
+                SumoDuel.queue.add(((Player) sender).getUniqueId());
+            }
+
             sender.sendMessage(ChatUtils.color("\n &6⚠ &eDuels &7» &eSyntax:\n  &f/duel &7[Public Duel Queues] \n  &f/duel <player> &7[Private Duel]\n "));
             return true;
         }
