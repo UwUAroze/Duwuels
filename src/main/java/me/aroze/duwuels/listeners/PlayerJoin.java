@@ -65,7 +65,7 @@ public class PlayerJoin implements Listener {
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     e.getPlayer().setGameMode(GameMode.ADVENTURE);
                     e.getPlayer().teleport(spawnLoc);
-                }, 25);
+                }, 10);
 
                 winner.sendTitle(ChatUtils.color("&aYou won!"), ChatUtils.color("&7good job."), 5, 15, 5);
 
@@ -79,7 +79,7 @@ public class PlayerJoin implements Listener {
                     finalWinner.teleport(spawnLoc);
                     SumoDuel.playing.get(finalArenaNum).remove(finalWinner1.getUniqueId());
                     SumoDuel.playing.get(finalArenaNum).remove(finalLoser.getUniqueId());
-                }, 25);
+                }, 10);
 
                 Location arenaMiddle = new Location(winner.getWorld(), (500*arenaNum) + 500000, 64, 500000);
                 Location start = arenaMiddle.clone().add(-8, 0, -8);
