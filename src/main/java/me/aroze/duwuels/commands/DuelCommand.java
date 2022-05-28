@@ -47,7 +47,8 @@ public class DuelCommand implements CommandExecutor {
         if (args.length > 1) {
 
             if (args[0].equalsIgnoreCase("sumo")) {
-                SumoDuel.queue.add(((Player) sender).getUniqueId());
+                QueueHandler.addToQueue(((Player) sender), args[0]);
+                return true;
             }
 
             sender.sendMessage(ChatUtils.color("\n &6⚠ &eDuels &7» &eSyntax:\n  &f/duel &7[Public Duel Queues] \n  &f/duel <player> &7[Private Duel]\n "));
