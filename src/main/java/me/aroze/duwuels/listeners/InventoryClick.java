@@ -1,6 +1,7 @@
 package me.aroze.duwuels.listeners;
 
 import me.aroze.duwuels.commands.DuelCommand;
+import me.aroze.duwuels.duels.QueueHandler;
 import me.aroze.duwuels.duels.SumoDuel;
 import me.aroze.duwuels.util.ChatUtils;
 import org.bukkit.entity.Player;
@@ -17,17 +18,7 @@ public class InventoryClick implements Listener {
             DuelCommand.queueGUI((Player) e.getWhoClicked());
             e.setCancelled(true);
             if (e.getSlot() == 4) {
-                if (SumoDuel.queue.contains(e.getWhoClicked().getUniqueId())) {
-                    SumoDuel.queue.remove(e.getWhoClicked().getUniqueId());
-                    e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &cremoved &7from the &eSumo &7queue!"));
-                    e.getWhoClicked().closeInventory();
-                    return;
-                }
-                SumoDuel.queue.add(e.getWhoClicked().getUniqueId());
-                e.getWhoClicked().sendMessage(ChatUtils.color("&7You have been &aadded &7to the &eSumo &7queue!"));
-                e.getWhoClicked().closeInventory();
-                // queue/game logic
-                SumoDuel.start();
+                QueueHandler.addToQueue((Player) e.getWhoClicked(), "Sumo");
             }
         }
 
