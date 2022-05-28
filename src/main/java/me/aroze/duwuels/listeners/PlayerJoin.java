@@ -14,6 +14,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class PlayerJoin implements Listener {
@@ -38,10 +40,16 @@ public class PlayerJoin implements Listener {
 
                 for (Integer key : SumoDuel.playing.keySet()) {
                     if (SumoDuel.playing.get(key).contains(e.getPlayer().getUniqueId())) {
+
+                        ArrayList<UUID> playerList = new ArrayList<>();
+                        playerList.add(SumoDuel.playing.get(key).get(0));
+                        playerList.add(SumoDuel.playing.get(key).get(1));
+
                         loser = e.getPlayer();
-                        SumoDuel.playing.get(key).remove(loser.getUniqueId());
-                        winner = Bukkit.getPlayer(SumoDuel.playing.get(key).get(0));
-                        SumoDuel.playing.get(key).remove(winner.getUniqueId());
+                        playerList.remove(loser.getUniqueId());
+
+                        winner = Bukkit.getPlayer(playerList.get(0));
+
                         arenaNum = key;
                     }
                 }
@@ -60,10 +68,17 @@ public class PlayerJoin implements Listener {
                 }, 25);
 
                 winner.sendTitle(ChatUtils.color("&aYou won!"), ChatUtils.color("&7good job."), 5, 15, 5);
+
                 Player finalWinner = winner;
+                Integer finalArenaNum = arenaNum;
+                Player finalWinner1 = winner;
+                Player finalLoser = loser;
+
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     finalWinner.setGameMode(GameMode.ADVENTURE);
                     finalWinner.teleport(spawnLoc);
+                    SumoDuel.playing.get(finalArenaNum).remove(finalWinner1.getUniqueId());
+                    SumoDuel.playing.get(finalArenaNum).remove(finalLoser.getUniqueId());
                 }, 25);
 
                 Location arenaMiddle = new Location(winner.getWorld(), (500*arenaNum) + 500000, 64, 500000);
