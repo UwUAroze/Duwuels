@@ -24,13 +24,14 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+
+        e.getPlayer().teleport(spawnLoc);
+
         e.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(100);
 
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
             if ( (!(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR))) && y < 65 ) {
-
-                e.getPlayer().teleport(spawnLoc);
 
                 Player loser = null;
                 Player winner = null;
