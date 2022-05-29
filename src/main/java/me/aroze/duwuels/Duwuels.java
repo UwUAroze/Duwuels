@@ -2,6 +2,7 @@ package me.aroze.duwuels;
 
 import me.aroze.duwuels.commands.DeleteAllArenas;
 import me.aroze.duwuels.commands.DuelCommand;
+import me.aroze.duwuels.commands.TestForceload;
 import me.aroze.duwuels.commands.TestGenerate;
 import me.aroze.duwuels.listeners.*;
 import org.bukkit.command.CommandExecutor;
@@ -16,6 +17,7 @@ public final class Duwuels extends JavaPlugin {
         addCommand("duel", new DuelCommand());
         addCommand("gen", new TestGenerate());
         addCommand("deleteallarenas", new DeleteAllArenas());
+        addCommand("testforceload", new TestForceload());
 
         addListener(new InventoryClick());
         addListener(new InventoryClose());

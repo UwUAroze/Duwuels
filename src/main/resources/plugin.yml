@@ -9,3 +9,4 @@ commands:
     aliases: [ d, duels, duwuel, duwuels, 1v1, q, queue ]
   gen: {}
   deleteallarenas: {}
+  testforceload: {}
