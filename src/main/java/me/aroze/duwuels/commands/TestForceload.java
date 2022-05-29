@@ -25,7 +25,7 @@ public class TestForceload implements CommandExecutor {
                     arenaMiddle.getChunk().load();
                     arenaMiddle.getChunk().setForceLoaded(true);
                     arenaMiddle.getChunk().load();
-                    Bukkit.broadcastMessage(ChatUtils.color("&cLoaded chunk at " + arenaMiddle.getX()));
+                    sender.sendMessage(ChatUtils.color("&cLoaded chunk at " + arenaMiddle.getX()));
                 }
             }
 
