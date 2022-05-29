@@ -17,6 +17,11 @@ public class TestForceload implements CommandExecutor {
 
         Player player = (Player) sender;
 
+        if (!sender.hasPermission("duwuels.admin")) {
+            sender.sendMessage(ChatUtils.color("&c⚠ &7You aren't allowed to do this! smh!"));
+            return true;
+        }
+
         Location arenaMiddle = new Location(player.getWorld(), 500000, 64, 500000);
 
             for (int i = 0; i < Integer.parseInt(args[0]); i++) {
