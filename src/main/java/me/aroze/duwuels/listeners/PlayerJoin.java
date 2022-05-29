@@ -55,8 +55,9 @@ public class PlayerJoin implements Listener {
                 }
 
                 if (loser == null || winner == null) return;
+                //if (loser.getGameMode().equals(GameMode.SPECTATOR) || winner.getGameMode().equals(GameMode.SPECTATOR)) return;
 
-                Bukkit.broadcastMessage(y + "");
+                Bukkit.broadcastMessage((int) loser.getLocation().getX() + ", " +  (int) loser.getLocation().getY() + ", " + (int) loser.getLocation().getZ() + ", " + loser.getGameMode());
 
                 loser.setGameMode(GameMode.SPECTATOR);
                 winner.setGameMode(GameMode.SPECTATOR);
