@@ -18,21 +18,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+import static me.aroze.duwuels.Duwuels.spawnLoc;
+
 public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         e.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(100);
 
-
-        Location spawnLoc = Bukkit.getWorld("lobby").getSpawnLocation();
-        spawnLoc.setYaw(135);
-        spawnLoc.setPitch(0);
-        e.getPlayer().teleport(spawnLoc);
-
         BukkitTask yDeathCheck = Bukkit.getScheduler().runTaskTimer(Duwuels.getInstance(), () -> {
             double y = e.getPlayer().getLocation().getY();
             if ( (!(e.getPlayer().getGameMode().equals(GameMode.SPECTATOR))) && y < 65 ) {
+
+                e.getPlayer().teleport(spawnLoc);
 
                 Player loser = null;
                 Player winner = null;
@@ -72,13 +70,12 @@ public class PlayerJoin implements Listener {
 
                 Player finalWinner = winner;
                 Integer finalArenaNum = arenaNum;
-                Player finalWinner1 = winner;
                 Player finalLoser = loser;
 
                 Bukkit.getScheduler().runTaskLater(Duwuels.getInstance(), () -> {
                     finalWinner.setGameMode(GameMode.ADVENTURE);
                     finalWinner.teleport(spawnLoc);
-                    SumoDuel.playing.get(finalArenaNum).remove(finalWinner1.getUniqueId());
+                    SumoDuel.playing.get(finalArenaNum).remove(finalWinner.getUniqueId());
                     SumoDuel.playing.get(finalArenaNum).remove(finalLoser.getUniqueId());
                 }, 10);
 
