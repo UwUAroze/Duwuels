@@ -5,14 +5,22 @@ import me.aroze.duwuels.commands.DuelCommand;
 import me.aroze.duwuels.commands.TestForceload;
 import me.aroze.duwuels.commands.TestGenerate;
 import me.aroze.duwuels.listeners.*;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Duwuels extends JavaPlugin {
 
+    public static Location spawnLoc = Bukkit.getWorld("lobby").getSpawnLocation();
+
     @Override
     public void onEnable() {
+
+        spawnLoc.setYaw(135);
+        spawnLoc.setPitch(0);
+
 
         addCommand("duel", new DuelCommand());
         addCommand("gen", new TestGenerate());
