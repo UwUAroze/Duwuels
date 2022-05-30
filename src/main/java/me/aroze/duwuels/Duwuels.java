@@ -13,10 +13,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Duwuels extends JavaPlugin {
 
-    public static Location spawnLoc = Bukkit.getWorld("lobby").getSpawnLocation();
+    public static Location spawnLoc;
 
     @Override
     public void onEnable() {
+
+        spawnLoc = Bukkit.getWorld("lobby").getSpawnLocation();
 
         spawnLoc.setYaw(135);
         spawnLoc.setPitch(0);
